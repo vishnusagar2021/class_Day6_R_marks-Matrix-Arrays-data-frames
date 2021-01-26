@@ -131,8 +131,8 @@ mat7
 dim(mat7)
 
 # modify the dimension of the matrix  dim() = c(r,c)
-dim(mat7)= c(4,5)
-mat7
+# dim(mat7)= c(3,3)
+# mat7
 
 # transpose of the matrix using the t() function
 t(mat7)
@@ -207,6 +207,113 @@ array2 = array(c(vector1,vector2), dim = c(3,4,3), dimnames= list(row.names,colu
 array2
 
 ```
+
+#Accessing R Array Elements
+```{r}
+# Print the mth row of the n th matrix of the array.
+#print (array_name[m,,n])
+# Print the 2nd row of the second matrix of the array.
+print(array2[2,,2])
+
+# Print the element in the 1st row and 3rd column of the 1st matrix.
+print(array2[1,3,1])       
+
+# Print the 2nd Matrix.
+print(array2[,,2])
+
+```
+### Manipulating R Array Elements
+
+```{r}
+# Manipulating R Array Elements
+#  first Create two vectors of different lengths
+vector1= c(2,4,6)
+vector2= c(1,3,5,7,9,11)
+array1= array(c(vector1, vector2), dim= c(3,3,3))
+
+
+vector3=c(12,14,16)
+vector4=c(21,23,25,27,29,31)
+array2= array(c(vector3, vector4), dim= c(3,3,3))
+
+array1
+array2
+
+# create matrices from these array
+matrix1 = array1[,,1]
+matrix2 = array2[,,2]
+
+# Add the matrices.
+
+output = matrix1+matrix2
+print(output)
+```
+
+## R Data Frame
+
+```{r}
+# The tabular data is referred by the data frames in which there are a number of observations(rows) or measurements (columns).
+# ie, data table in excel like locations and parameters
+
+# function for data frame
+#`function - data.frame()`
+
+# create a data frame
+
+water_data= data.frame(
+location_no= c(1:5),
+parameter_names= c("pH", "EC", "EH", "Na", "Cl"),
+surface_data = c(7,25,10,32,64),
+Bottom_data  = c(8,36,12,42,72),
+date_sampling = as.Date (c("2019-02-04", "2019-06-21", "2019-11-14", "2020-05-19","2020-09-25")),
+stringsAsFactors = FALSE)
+
+print(water_data)
+
+
+# The structure of the data frame can see by using the str () function.
+str(water_data)
+
+# Extract Specific columns    $ for extraction
+
+output= data.frame(water_data$surface_data,water_data$Bottom_data)
+output
+
+
+# Extract first two rows
+
+output = water_data[1:2,]
+output
+
+# Expand R Data Frame - Add the column vector using a new column name.     $ for merging new data
+water_data$quality_status = c("good","bad", "moderate","drinkable","contaminated")
+water_data
+
+water_data
+#
+
+```
+### Bind the two data frames
+```{r}
+# Create the second R data frame    change the values for parametres
+water_data2= data.frame(
+location_no= c(6:8),
+parameter_names= c("K", "Ba", "F"),
+surface_data = c(32,56,52),
+Bottom_data  = c(21,42,34),
+date_sampling = as.Date (c("2019-02-04", "2019-06-21", "2019-11-14")),
+quality_status = c("good","bad", "moderate"),
+stringsAsFactors = FALSE)
+water_data2
+
+# binding the 2 data set use rbind()
+# output = rbind(data1,data2)
+output = rbind(water_data,water_data2)
+output
+
+ 
+```
+
 
 ## Including Plots
 
