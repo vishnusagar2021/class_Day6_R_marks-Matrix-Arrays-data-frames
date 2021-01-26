@@ -1,0 +1,112 @@
+---
+title: "vishnusagar"
+output: html_document
+---
+# "Matrix, arrays and Data frames"
+```{r}
+
+print("Matrix, arrays and Data frames")
+
+```
+
+## 1.Matrix
+
+
+```{r}
+# In a matrix, numbers are arranged in a fixed number of rows and columns and usually, the numbers are the real numbers. *All the data elements must share a common basic type.
+
+#`Funtion - matrix()`
+
+```
+
+```{r}
+matrix ()
+```
+```{r}
+mat = matrix (c(2,4,6,8,10,12),     # data or elements
+nrow = 2,                        # no of rows first
+ncol = 3,                       # no. of column second
+byrow= TRUE)                     # true =[...    false = [..
+                                  #       ...]            ..
+                                  #                       ..]
+mat
+
+mat1 = matrix (c(2,4,6,8,10,12),
+nrow = 2,
+ncol = 3, 
+byrow= FALSE)
+mat1
+
+# An element at the mth row and nth column 
+mat [2,3]
+
+
+#extract single element from a matrix
+## To extract only the mth row of our matrix ‘mat’
+mat[2,]
+## To extract only the nth coln of our matrix ‘mat’
+mat[,2]
+
+```
+###Creating R matrix through the arrangement of elements sequentially by row
+```{r}             
+#Creating R matrix through the arrangement of elements sequentially by row
+# arrange_row =
+arrang_row = matrix(c(4:15), nrow=4, byrow=TRUE)
+print(arrang_row) 
+
+```
+###Creating R matrix by arranging elements sequentially by column
+```{r}
+#Creating R matrix by arranging elements sequentially by column
+# arrang_col =
+arrang_col = matrix(c(4:15), ncol = 4, byrow = FALSE)
+arrang_col
+
+```
+#### Defining names of columns and rows in a matrix
+```{r}
+#Defining names of columns and rows in a matrix
+# rows, cols
+# dimnames = list(rows, cols)
+# are the major codes required
+# first Creating character vector of row names
+
+rows = c("row1", "row2", "row3", "row4") #Creating  character vector of row names
+cols = c("col 1", "col2", "col3")   #Creating  character vector of col names
+mat5 = matrix(c(4:15), nrow=4, byrow=TRUE, dimnames=list(rows,cols))
+mat5
+
+rows = c("s1", "s2", "s3", "s4")
+cols = c("pH", "EH", "EC", "TDS")
+mat6= matrix(c(1:16), nrow=4, byrow = TRUE, dimnames=list(rows, cols))
+mat6
+```
+#### Modify Matrix in R
+```{r}
+# Modify Matrix in R
+#Assign a Single Element
+mat6
+mat6[2,2]
+# replace single element 
+mat6[2,2] =20
+mat6
+# replace column
+mat6[,2] = c(21,23,25,27)     # mat[,x]= c(a1,a2,a3...an)    x is column no, c() is replacemnt
+mat6
+# replace row
+mat6[3,] =c(20,30,40,50)
+mat6
+
+
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=TRUE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
