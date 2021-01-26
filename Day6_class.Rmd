@@ -100,6 +100,113 @@ mat6
 
 
 ```
+### Use of Relation Operators
+```{r}
+# Use of Relation Operators
+# replacing elements with another elemnts
+#mat[mat== element in matrix] = replacement element
+mat6[mat6==50]=5
+mat6
+#Replacing elements that are less with 10 with 0
+mat6[mat6 <10] = 0
+mat6
+
+```
+### Addition of Rows and Columns
+```{r} 
+# first create a  new matrix
+mat7 =matrix(c(1:12), nrow= 3, ncol =3, byrow=TRUE)
+mat7
+# add a column to our matrix using cbind() function , c()
+
+mat7=cbind(mat7, c(10,11,12))
+mat7
+# add a row to our matrix using rbind() function, c()
+
+mat7= rbind(mat7, c(20,30,40,50))
+mat7
+
+# dimension of the matrix  using the dim() function
+
+dim(mat7)
+
+# modify the dimension of the matrix  dim() = c(r,c)
+dim(mat7)= c(4,5)
+mat7
+
+# transpose of the matrix using the t() function
+t(mat7)
+mat7
+
+```
+### R Matrix Operations
+```{r}
+#R Matrix Operations
+#1. Addition
+mat1 = matrix(c(1:8), nrow=4, ncol=4, byrow=TRUE)  #4x4 matrix
+mat2= matrix(c(1:16), nrow=4, ncol=4, byrow=TRUE)   # 4*4
+sum= mat1 + mat2 
+print(sum)
+
+# subtraction 
+sub = mat1 -mat2 
+print (sub)
+
+# multiplication
+prod= mat1 * mat2
+print(prod)
+
+
+#division
+
+div = mat1/mat2
+print (div)
+
+# multiplication with a contstant
+ prod = mat1*10
+print (prod)
+
+# multiplication with constant
+prod= (mat1*mat2)* 10
+print(prod)
+
+
+
+```
+## Array 
+
+```{r}
+## R Array 
+#R arrays are the data objects which can store data in more than two dimensions. 
+# In arrays, data is stored in the form of matrices, rows, and columns.
+# 'array ()'
+# `Array_NAME =  array(data, dim = (row_Size, column_Size, matrices, dimnames))`
+
+array=array(data=NA, dim= length(data), dimname= NULL)
+print(array)
+```
+#### Create Array in R
+
+```{r}
+# first Create two vectors of different lengths.
+vector1= c(2,4,6,8)
+vector2 = c(1,3,5,7,9,11,3,15)
+# Take these vectors as input to the array.
+
+array1 = array(c(vector1,vector2), dim = c(4,2,3))
+array1
+
+# Naming Columns And Rows
+# first Create two vectors of different lengths.
+vector1= c(2,4,6,8)
+vector2 = c(1,3,5,7,9,11,3,15)
+column.names= c("s1","s2","s3","s4")
+row.names = c("L1","L2", "L3")
+matrix.names= c("M1", "M2", "M3")
+array2 = array(c(vector1,vector2), dim = c(3,4,3), dimnames= list(row.names,column.names,matrix.names))
+array2
+
+```
 
 ## Including Plots
 
